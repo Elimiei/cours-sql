@@ -24,24 +24,24 @@ namespace CRUD
         {
             if (this.db.Con.State == ConnectionState.Open)
             {
-                this.load_students();
+                this.load_personnages();
                 this.fill_TexBoxes(index);
             }
             else
                 Application.Exit();
         }
 
-        // Loading Students From the Database
-        private void load_students()
+        // Loading Personnages From the Database
+        private void load_personnages()
         {
             db.Cmd.CommandType = CommandType.Text;
-            db.Cmd.CommandText = "Select * from Student";
+            db.Cmd.CommandText = "Select * from Personnage";
             db.Dr = db.Cmd.ExecuteReader();
             dt.Clear();
             dt.Load(db.Dr);
         }
 
-        // Filling Text Boxes With Students Info
+        // Filling Text Boxes With Personnages Info
         private void fill_TexBoxes(int i)
         {
             IDtxt.Text = dt.Rows[i][0].ToString();
@@ -51,8 +51,8 @@ namespace CRUD
             departementTxt.Text = dt.Rows[i][4].ToString();
         }
 
-        // Get Student From TextBoxes
-        private Student get_student()
+        // Get Personnage From TextBoxes
+        private Personnage get_personnage()
         {
             int id = -1;
             string f_name = firstNameTxt.Text.Trim(),
@@ -63,77 +63,77 @@ namespace CRUD
             try { id = int.Parse(IDtxt.Text.Trim()); }
             catch { MessageBox.Show("Enter a Valid ID"); }
 
-            return new Student(id, f_name, l_name, city, departement);
+            return new Personnage(id, f_name, l_name, city, departement);
         }
 
-        // Adding a Student
+        // Adding a Personnage
         private void add_Handler(object sender, EventArgs e)
         {
-            Student std = this.get_student();
+            Personnage std = this.get_personnage();
             if (std.Id < 0)
                 return;
 
-            int added = std.AddStudent(db);
+            int added = std.AddPersonnage(db);
             if (added >= 0)
             {
                 if (added == 1)
                 {
-                    this.load_students();
+                    this.load_personnages();
                     this.index = dt.Rows.Count - 1;
                     this.fill_TexBoxes(index);
-                    MessageBox.Show("The Student Was Added Successfuly");
+                    MessageBox.Show("The Personnage Was Added Successfuly");
                 }
                 else
-                    MessageBox.Show("This Student already exist");
+                    MessageBox.Show("This Personnage already exist");
             }
             else
                 MessageBox.Show("Connection Error");
         }
 
-        // Updating a Student
-        private void update_student(object sender, EventArgs e)
+        // Updating a Personnage
+        private void update_personnage(object sender, EventArgs e)
         {
-            Student std = this.get_student();
+            Personnage std = this.get_personnage();
             if (std.Id < 0)
                 return;
 
-            int updated = std.UpdateStudent(db);
+            int updated = std.UpdatePersonnage(db);
             if (updated >= 0)
             {
                 if (updated == 1)
                 {
-                    this.load_students();
+                    this.load_personnages();
                     this.fill_TexBoxes(index);
-                    MessageBox.Show("The Student Was Updated Successfuly");
+                    MessageBox.Show("The Personnage Was Updated Successfuly");
                 }
                 else
-                    MessageBox.Show("This Student Don't Exist");
+                    MessageBox.Show("This Personnage Don't Exist");
             }
             else
                 MessageBox.Show("Connection Error");
         }
 
-        // Deleting a Student
+        // Deleting a Personnage
         private void delete_handler(object sender, EventArgs e)
         {
-            Student std = this.get_student();
+            Personnage std = this.get_personnage();
             if (std.Id < 0)
                 return;
 
             if ( MessageBox.Show("Are you sure", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes )
             {
-                int deleted = std.DeleteStudent(db);
+                int deleted = std.DeletePersonnage(db);
                 if (deleted >= 0)
                 {
                     if (deleted == 1)
                     {
-                        this.load_students();
+                        this.load_personnages();
                         this.index--;
                         this.fill_TexBoxes(index);
-                        MessageBox.Show("The Student Was Deleted Successfuly");
+                        MessageBox.Show("The Personnage Was Deleted Successfuly");
                     }
                     else
-                        MessageBox.Show("This Student Don't Exist");
+                        MessageBox.Show("This Personnage Don't Exist");
                 }
                 else
                     MessageBox.Show("Connection Error");
@@ -141,25 +141,25 @@ namespace CRUD
         }
 
         #region Navgation Buttons
-        // Navigate to Next Student
-        private void next_student(object sender, EventArgs e)
+        // Navigate to Next Personnage
+        private void next_personnage(object sender, EventArgs e)
         {
             index = index + 1 > dt.Rows.Count - 1 ? 0 : index + 1;
             fill_TexBoxes(index);
         }
-        // Navigate to Previeus Student
-        private void prev_student(object sender, EventArgs e)
+        // Navigate to Previeus Personnage
+        private void prev_personnage(object sender, EventArgs e)
         {
             index = index - 1 < 0 ? dt.Rows.Count - 1 : index - 1;
             fill_TexBoxes(index);
         }
-        // Navigate to the first Student
+        // Navigate to the first Personnage
         private void navigateToFirst(object sender, EventArgs e)
         {
             index = 0;
             fill_TexBoxes(index);
         }
-        // Navigate to the Last Student
+        // Navigate to the Last Personnage
         private void navigateToLast(object sender, EventArgs e)
         {
             index = dt.Rows.Count - 1;

@@ -124,7 +124,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 20);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Student ID:";
+            this.label6.Text = "Personnage ID:";
             // 
             // IDtxt
             // 
@@ -186,7 +186,7 @@
             this.button5.TabIndex = 11;
             this.button5.Text = "Update";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.update_student);
+            this.button5.Click += new System.EventHandler(this.update_personnage);
             // 
             // button6
             // 
@@ -208,7 +208,7 @@
             this.button7.TabIndex = 15;
             this.button7.Text = ">";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.next_student);
+            this.button7.Click += new System.EventHandler(this.next_personnage);
             // 
             // button8
             // 
@@ -219,7 +219,7 @@
             this.button8.TabIndex = 14;
             this.button8.Text = "<";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.prev_student);
+            this.button8.Click += new System.EventHandler(this.prev_personnage);
             // 
             // Form1
             // 

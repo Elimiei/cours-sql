@@ -1,0 +1,9 @@
+C:\Users\Biche\Desktop\cours-sql\CRUD\bin\Debug\CRUD.exe.config
+C:\Users\Biche\Desktop\cours-sql\CRUD\bin\Debug\CRUD.exe
+C:\Users\Biche\Desktop\cours-sql\CRUD\bin\Debug\CRUD.pdb
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.csprojAssemblyReference.cache
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.Form1.resources
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.Properties.Resources.resources
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.csproj.GenerateResource.cache
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.exe
+C:\Users\Biche\Desktop\cours-sql\CRUD\obj\Debug\CRUD.pdb

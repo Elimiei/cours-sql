@@ -6,8 +6,8 @@ namespace CRUD
 {
     class ADO
     {
-        private const string serverName = "PRO-PC\\SQLSERVER";
-        private const string dataBaseName = "school";
+        private const string serverName = "DESKTOP-ANLO7MR";
+        private const string dataBaseName = "barbarian";
         private const bool integratedSecurity = true;
 
         private SqlConnection con;
@@ -23,10 +23,7 @@ namespace CRUD
         // Constructor
         public ADO()
         {
-            this.con = new SqlConnection("Data Source = " + serverName + ";"
-                            + "Integrated Security = " + integratedSecurity + ";" +
-                            "Initial Catalog = "+ dataBaseName +""
-                        );
+            this.con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=barbarian;Integrated Security=True;MultipleActiveResultSets=true");
             this.cmd = new SqlCommand();
             this.cmd.Connection = this.con;
         }
